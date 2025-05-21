@@ -1,3 +1,5 @@
+import './_title-box.scss'
+
 function TitleBox({ title, desc }) {
     return(
         <div className="title-box">

@@ -1,4 +1,5 @@
 import { useFormContext } from "../../contexts/FormContext";
+import './_input-box.scss'
 
 function InputBox({ label, name, type, placeholder}) {
     const { data, setData } = useFormContext();
@@ -8,14 +9,22 @@ function InputBox({ label, name, type, placeholder}) {
 
         setData((prevData) => ({
         ...prevData,
-        [name]: value,
+        [name]: {
+            ...prevData[name],
+            value: value,
+            errorMessage: ''
+
+        },
         }));
     }
 
     return (
         <div className="input-box">
-            <label htmlFor={name}>{label}</label>
-            <input type={type} placeholder={placeholder} name={name} value={data[name] || ""} onChange={handleInputChange}/>
+            <div className="input-box__labels">
+                <label htmlFor={name}>{label}</label>
+                {data[name].errorMessage !== '' && <span className="input-box__error">{data[name].errorMessage}</span>}
+            </div>
+            <input type={type} placeholder={placeholder} name={name} value={data[name].value || ""} onChange={handleInputChange} className={data[name].errorMessage !== '' ? 'error' : ''}/>
         </div>
     )
 }

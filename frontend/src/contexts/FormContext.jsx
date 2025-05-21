@@ -8,9 +8,9 @@ export const useFormContext = () => useContext(FormContext);
 export const FormProvider = ({children}) => {
     const [step, setStep] = useState(1);
     const [data, setData] = useState({
-        name:"",
-        email:"",
-        phone:""
+        name:{value:"", errorMessage: ""},
+        email:{value:"", errorMessage: ""},
+        phone:{value:"", errorMessage: ""}
     });
 
     const isMobile = useWindowSize();

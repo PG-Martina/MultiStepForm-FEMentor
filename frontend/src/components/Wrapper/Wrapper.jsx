@@ -6,7 +6,6 @@ import FormSteps from '../FormSteps/FormSteps';
 
 function Wrapper() {
     const { isMobile } = useFormContext();
-    console.info(isMobile)
 
     return (
         <div className="wrapper">

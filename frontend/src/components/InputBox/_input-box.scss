@@ -1,0 +1,46 @@
+.input-box {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    
+    &:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    &__labels{
+        display: flex;
+        justify-content: space-between;
+        column-gap: 10px;
+    }
+
+    &__error {
+        color: $red-500;
+        font-weight: $font-weight-medium;
+    }
+
+    label {
+        color: $blue-950;
+        font-weight: $font-weight-medium;
+    }
+
+    input {
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid $grey-500;
+        font-family: $font-family-base;
+        font-size: $font-size-paragraph;
+
+        &::placeholder {
+            font-weight: $font-weight-medium;
+            color: $purple-200;
+        }
+
+        &:focus {
+            outline-color: $purple-600;
+        }
+
+        &.error {
+            border-color: $red-500;
+        }
+    }
+}
